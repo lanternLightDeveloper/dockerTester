@@ -25,188 +25,107 @@
 	const defaultSections: Section[] = [
 		{
 			id: 'big-picture',
-			title: '1. Big picture & vocabulary',
-			description:
-				'Understand what a server is, what self-hosting means, and basic internet language.',
+			title: '1. Big picture & internet vocabulary',
+			description: 'Understand what you are building before touching hardware.',
 			tasks: [
 				{ id: 'server-vs-laptop', title: 'Server vs normal laptop', done: false },
 				{ id: 'self-hosting-meaning', title: 'What self-hosting actually means', done: false },
-				{ id: 'ip-address', title: 'IP address (local vs public)', done: false },
-				{ id: 'domain-dns', title: 'Domain names & DNS (high level)', done: false },
-				{ id: 'ports-http-https', title: 'Ports, HTTP, and HTTPS basics', done: false }
+				{ id: 'ip-addresses', title: 'IP addresses (local vs public)', done: false },
+				{ id: 'domains-dns', title: 'Domain names & DNS (conceptual)', done: false },
+				{ id: 'ports-http-https', title: 'Ports, HTTP, HTTPS (conceptual)', done: false }
 			],
 			notes: []
 		},
 		{
-			id: 'linux',
-			title: '2. Linux & Ubuntu basics',
-			description: 'Get comfortable with Ubuntu and the command line on your server laptop.',
+			id: 'linux-basics',
+			title: '2. Linux & Ubuntu fundamentals',
+			description: 'Become comfortable operating the server locally.',
 			tasks: [
-				{ id: 'install-Ubuntu', title: 'Install Ubuntu on the old laptop', done: false },
+				{ id: 'install-ubuntu', title: 'Install Ubuntu on the old laptop', done: false },
 				{
 					id: 'terminal-basics',
 					title: 'Terminal basics: ls, cd, cp, mv, rm, cat, nano',
 					done: false
 				},
-				{ id: 'sudo-root', title: 'Understand sudo and root vs normal user', done: false },
-				{ id: 'apt-install', title: 'Install software with apt (e.g., curl, git)', done: false },
-				{ id: 'system-status', title: 'Check CPU, RAM, disk (top/htop, df -h)', done: false }
+				{ id: 'users-sudo', title: 'Users, sudo, root vs normal user', done: false },
+				{ id: 'apt-install', title: 'Install software with apt', done: false },
+				{ id: 'system-resources', title: 'Check CPU, RAM, disk usage', done: false }
 			],
 			notes: []
 		},
 		{
-			id: 'networking',
-			title: '3. Networking fundamentals',
-			description: 'Learn how your server talks to the world and how the world reaches it.',
+			id: 'networking-local',
+			title: '3. Networking fundamentals (local)',
+			description: 'Stabilize the server on your home network.',
 			tasks: [
 				{ id: 'local-vs-public-ip', title: 'Local IP vs public IP', done: false },
-				{ id: 'router-nat', title: 'What your router does (NAT, home network)', done: false },
-				{
-					id: 'port-forwarding',
-					title: 'Set up a simple port forward on your router',
-					done: false
-				},
-				{ id: 'static-ip-lan', title: 'Give your server a static IP on your LAN', done: false },
-				{
-					id: 'dns-point-domain',
-					title: 'Point a domain to your home IP (DNS A record)',
-					done: false
-				},
-				{ id: 'dynamic-dns', title: 'Dynamic DNS (if your IP changes)', done: false }
+				{ id: 'router-nat', title: 'Router, NAT, and LAN basics', done: false },
+				{ id: 'static-lan-ip', title: 'Assign a static LAN IP to the server', done: false },
+				{ id: 'os-ports', title: 'Understand ports at the OS level', done: false }
 			],
 			notes: []
 		},
 		{
-			id: 'docker',
+			id: 'docker-basics',
 			title: '4. Docker fundamentals',
-			description: 'Use containers to run apps in an isolated, repeatable way.',
+			description: 'Run applications in a repeatable, isolated way.',
 			tasks: [
-				{ id: 'install-docker', title: 'Install Docker and test with hello-world', done: false },
+				{ id: 'install-docker', title: 'Install Docker and run hello-world', done: false },
+				{ id: 'images-containers', title: 'Images vs containers', done: false },
 				{
-					id: 'images-vs-containers',
-					title: 'Understand Docker images vs containers',
+					id: 'docker-cli',
+					title: 'Use docker run / ps / logs / stop / rm',
 					done: false
 				},
-				{
-					id: 'docker-run-ps-logs',
-					title: 'Practice docker run / ps / logs / stop / rm',
-					done: false
-				},
-				{ id: 'docker-volumes', title: 'Use a Docker volume for persistent data', done: false },
-				{ id: 'docker-networks', title: 'Basic idea of Docker networks', done: false }
+				{ id: 'docker-volumes', title: 'Use volumes for persistent data', done: false },
+				{ id: 'docker-networks', title: 'Basic Docker networking concepts', done: false }
 			],
 			notes: []
 		},
 		{
 			id: 'reverse-proxy',
-			title: '5. Reverse proxy & HTTPS',
-			description:
-				'Put a smart “traffic director” in front of your apps and secure them with HTTPS.',
+			title: '5. Reverse proxy concepts',
+			description: 'Understand traffic routing before adding security.',
 			tasks: [
+				{ id: 'proxy-what', title: 'What a reverse proxy is and why it exists', done: false },
 				{
-					id: 'reverse-proxy-idea',
-					title: 'What a reverse proxy is and why you want one',
+					id: 'proxy-choice',
+					title: 'Choose a proxy (Caddy, Traefik, or Nginx)',
 					done: false
 				},
 				{
-					id: 'choose-proxy',
-					title: 'Pick one: Caddy, Traefik, or Nginx (even if using Coolify)',
+					id: 'proxy-routing',
+					title: 'Route a hostname to a container',
 					done: false
 				},
-				{
-					id: 'proxy-to-container',
-					title: 'Route a domain to a test container via proxy',
-					done: false
-				},
-				{ id: 'lets-encrypt', title: 'Get a Let’s Encrypt HTTPS certificate working', done: false },
-				{ id: 'ports-80-443', title: 'Understand ports 80 and 443 in your setup', done: false }
+				{ id: 'ports-80-443', title: 'Understand ports 80 vs 443 in practice', done: false }
 			],
 			notes: []
 		},
 		{
-			id: 'coolify',
-			title: '6. Coolify & app deployment',
-			description:
-				'Use Coolify as your control panel to deploy and manage projects with Docker underneath.',
+			id: 'public-access',
+			title: '6. Public reachability & DNS',
+			description: 'Expose the server to the internet in a controlled way.',
 			tasks: [
 				{
-					id: 'install-coolify',
-					title: 'Install Coolify on your server (via Docker)',
+					id: 'access-method',
+					title: 'Choose port forwarding or a secure tunnel',
 					done: false
 				},
 				{
-					id: 'coolify-dashboard',
-					title: 'Explore the Coolify dashboard and settings',
+					id: 'router-or-tunnel',
+					title: 'Configure router forwarding or tunnel provider',
 					done: false
 				},
-				{ id: 'deploy-static-site', title: 'Deploy a simple static site via Coolify', done: false },
-				{ id: 'connect-git', title: 'Connect a Git repository and deploy from it', done: false },
-				{ id: 'env-vars', title: 'Use environment variables & secrets in Coolify', done: false },
-				{ id: 'update-rollout', title: 'Update an app and roll out a new version', done: false }
-			],
-			notes: []
-		},
-		{
-			id: 'operations',
-			title: '7. Operations, security & backups',
-			description: 'Make your setup safe, maintainable, and less likely to bite you later.',
-			tasks: [
-				{ id: 'ssh-keys', title: 'Set up SSH keys instead of password login', done: false },
+				{ id: 'get-domain', title: 'Purchase or select a domain', done: false },
 				{
-					id: 'ufw-firewall',
-					title: 'Enable UFW firewall and allow only what you need',
-					done: false
-				},
-				{ id: 'regular-updates', title: 'Update Ubuntu and Docker regularly', done: false },
-				{
-					id: 'backup-plan',
-					title: 'Create a backup plan for important data/volumes',
-					done: false
-				},
-				{ id: 'logs-monitoring', title: 'Know where logs live and how to check them', done: false }
-			],
-			notes: []
-		},
-		{
-			id: 'Take a break',
-			title: 'Break',
-			description: 'Break',
-			tasks: [{ id: 'chill', title: 'chill', done: false }],
-			notes: []
-		},
-		{
-			id: 'reachability-dns',
-			title: '8. Public reachability & DNS',
-			description: 'Make your home server reachable from the public internet in a controlled way.',
-			tasks: [
-				{
-					id: 'choose-access-method',
-					title: 'Decide access method: port forwarding vs secure tunnel',
+					id: 'dns-records',
+					title: 'Point DNS (A/AAAA) to IP or tunnel endpoint',
 					done: false
 				},
 				{
-					id: 'router-port-forward',
-					title: 'Configure router port forwarding (80/443) OR tunnel provider',
-					done: false
-				},
-				{
-					id: 'get-domain',
-					title: 'Purchase or choose a domain name',
-					done: false
-				},
-				{
-					id: 'dns-a-record',
-					title: 'Point domain DNS (A/AAAA record) to public IP or tunnel endpoint',
-					done: false
-				},
-				{
-					id: 'coolify-domain-bind',
-					title: 'Bind domain to container using Coolify reverse proxy',
-					done: false
-				},
-				{
-					id: 'external-access-test',
-					title: 'Confirm app loads externally via domain',
+					id: 'external-test',
+					title: 'Confirm basic external reachability',
 					done: false
 				}
 			],
@@ -214,64 +133,68 @@
 		},
 		{
 			id: 'https-tls',
-			title: '9. HTTPS & TLS fundamentals',
-			description: 'Secure all public traffic with TLS and understand how certificates work.',
+			title: '7. HTTPS & TLS',
+			description: 'Secure all public traffic correctly.',
 			tasks: [
-				{
-					id: 'enable-lets-encrypt',
-					title: 'Enable Let’s Encrypt HTTPS in Coolify',
-					done: false
-				},
-				{
-					id: 'force-https',
-					title: 'Force HTTP → HTTPS redirects',
-					done: false
-				},
-				{
-					id: 'cert-renewal-check',
-					title: 'Verify certificate auto-renewal is working',
-					done: false
-				},
+				{ id: 'lets-encrypt', title: 'Obtain Let’s Encrypt certificates', done: false },
+				{ id: 'enable-https', title: 'Enable HTTPS on the reverse proxy', done: false },
+				{ id: 'force-https', title: 'Force HTTP → HTTPS redirects', done: false },
+				{ id: 'auto-renew', title: 'Verify certificate auto-renewal', done: false },
 				{
 					id: 'tls-understanding',
-					title: 'Understand TLS certificates, chains, and renewals',
+					title: 'Understand TLS chains and renewals',
 					done: false
 				}
 			],
 			notes: []
 		},
 		{
-			id: 'server-security',
-			title: '10. Server security & hardening',
-			description: 'Reduce attack surface and harden your Linux server for internet exposure.',
+			id: 'coolify',
+			title: '8. Coolify & app deployment',
+			description: 'Deploy and manage applications using Coolify.',
 			tasks: [
+				{ id: 'install-coolify', title: 'Install Coolify', done: false },
 				{
-					id: 'non-root-user',
-					title: 'Create and use a non-root Linux user',
+					id: 'coolify-dashboard',
+					title: 'Explore the Coolify dashboard',
 					done: false
 				},
 				{
-					id: 'ssh-keys-only',
-					title: 'Disable SSH password login and use SSH keys only',
+					id: 'deploy-static',
+					title: 'Deploy a simple static site',
+					done: false
+				},
+				{ id: 'connect-git', title: 'Connect a Git repository', done: false },
+				{
+					id: 'domain-binding',
+					title: 'Bind domains via Coolify proxy',
 					done: false
 				},
 				{
-					id: 'change-ssh-port',
-					title: 'Change SSH port (optional hardening)',
+					id: 'env-vars',
+					title: 'Use environment variables and secrets',
 					done: false
 				},
-				{
-					id: 'enable-ufw',
-					title: 'Enable UFW firewall',
-					done: false
-				},
+				{ id: 'rollout', title: 'Update and roll out a new version', done: false }
+			],
+			notes: []
+		},
+		{
+			id: 'security',
+			title: '9. Server security & hardening',
+			description: 'Reduce attack surface before going further.',
+			tasks: [
+				{ id: 'non-root-user', title: 'Create and use a non-root user', done: false },
+				{ id: 'ssh-keys', title: 'Use SSH keys only', done: false },
+				{ id: 'ssh-port', title: 'Change SSH port (optional)', done: false },
+				{ id: 'enable-ufw', title: 'Enable UFW firewall', done: false },
 				{
 					id: 'ufw-rules',
-					title: 'Allow only SSH, HTTP, and HTTPS in UFW',
+					title: 'Allow only SSH, HTTP, HTTPS',
 					done: false
 				},
 				{
-					id: 'auto-security-updates',
+					id: 'security-updates',
 					title: 'Enable unattended security updates',
 					done: false
 				}
@@ -280,60 +203,56 @@
 		},
 		{
 			id: 'docker-production',
-			title: '11. Docker for production',
-			description: 'Understand how your application is built, run, and configured in Docker.',
+			title: '10. Docker for production',
+			description: 'Understand what Coolify abstracts away.',
 			tasks: [
+				{ id: 'dockerfile', title: 'Write a Dockerfile', done: false },
 				{
-					id: 'write-dockerfile',
-					title: 'Write a Dockerfile for your Svelte app',
+					id: 'multi-stage',
+					title: 'Use multi-stage production builds',
 					done: false
 				},
 				{
-					id: 'multi-stage-build',
-					title: 'Use a multi-stage Docker build for production',
-					done: false
-				},
-				{
-					id: 'env-vars-docker',
-					title: 'Understand environment variables in Docker',
+					id: 'docker-env-vars',
+					title: 'Environment variables in Docker',
 					done: false
 				},
 				{
 					id: 'volumes-vs-binds',
-					title: 'Understand Docker volumes vs bind mounts',
+					title: 'Volumes vs bind mounts',
 					done: false
 				},
 				{
-					id: 'manual-docker-run',
-					title: 'Run the container manually without Coolify',
+					id: 'manual-run',
+					title: 'Run containers without Coolify',
 					done: false
 				}
 			],
 			notes: []
 		},
 		{
-			id: 'persistence-backups',
-			title: '12. Persistence & backups',
-			description: 'Protect your data so the system can be destroyed and rebuilt safely.',
+			id: 'backups',
+			title: '11. Persistence & backups',
+			description: 'Ensure the system can be rebuilt safely.',
 			tasks: [
 				{
 					id: 'identify-state',
-					title: 'Identify all stateful data (volumes, databases, config)',
+					title: 'Identify all stateful data',
 					done: false
 				},
 				{
 					id: 'backup-destination',
-					title: 'Choose backup destination (NAS, another machine, cloud)',
+					title: 'Choose a backup destination',
 					done: false
 				},
 				{
 					id: 'automated-backups',
-					title: 'Set up automated daily backups',
+					title: 'Set up automated backups',
 					done: false
 				},
 				{
 					id: 'restore-test',
-					title: 'Perform a test restore from backup',
+					title: 'Test restoring from backup',
 					done: false
 				}
 			],
@@ -341,27 +260,27 @@
 		},
 		{
 			id: 'observability',
-			title: '13. Observability & monitoring',
-			description: 'Know when something breaks and why it broke.',
+			title: '12. Observability & monitoring',
+			description: 'Know when and why things break.',
 			tasks: [
 				{
-					id: 'container-logs',
-					title: 'Know how to access Docker and Coolify logs',
+					id: 'logs',
+					title: 'Access Docker and Coolify logs',
 					done: false
 				},
 				{
-					id: 'install-uptime-kuma',
-					title: 'Deploy Uptime Kuma for service monitoring',
+					id: 'journalctl',
+					title: 'Read system logs with journalctl',
 					done: false
 				},
 				{
-					id: 'disk-memory-alerts',
-					title: 'Set up disk and memory usage alerts',
+					id: 'uptime-kuma',
+					title: 'Deploy Uptime Kuma',
 					done: false
 				},
 				{
-					id: 'journalctl-basics',
-					title: 'Learn to read system logs with journalctl',
+					id: 'alerts',
+					title: 'Set up disk and memory alerts',
 					done: false
 				}
 			],
@@ -369,27 +288,27 @@
 		},
 		{
 			id: 'failure-drills',
-			title: '15. Failure drills & resilience',
-			description: 'Practice failure so outages do not cause panic.',
+			title: '13. Failure drills & resilience',
+			description: 'Practice recovery so outages do not cause panic.',
 			tasks: [
 				{
 					id: 'simulate-outage',
-					title: 'Simulate an outage and recover the service',
+					title: 'Simulate an outage and recover',
 					done: false
 				},
 				{
 					id: 'break-dns',
-					title: 'Intentionally break DNS and fix it',
+					title: 'Break DNS and fix it',
 					done: false
 				},
 				{
-					id: 'expire-cert',
+					id: 'expired-cert',
 					title: 'Simulate an expired TLS certificate',
 					done: false
 				},
 				{
 					id: 'disk-full',
-					title: 'Fill disk space and observe system behavior',
+					title: 'Fill disk space and observe behavior',
 					done: false
 				}
 			],
